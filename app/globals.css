@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fffaf1;
+  color: #1f2d2b;
+}
+
+@layer components {
+  .hero-slide {
+    @apply absolute inset-0 bg-cover bg-right bg-no-repeat;
+  }
+
+  .section-shell {
+    @apply px-[clamp(22px,6vw,84px)] py-[74px] max-sm:px-[18px] max-sm:py-14;
+  }
+
+  .section-head {
+    @apply mx-auto mb-8 flex max-w-[1180px] items-end justify-between gap-8 max-sm:grid max-sm:gap-3.5;
+  }
+
+  .section-title {
+    @apply m-0 text-[clamp(30px,4vw,48px)] leading-[1.1] tracking-normal;
+  }
+
+  .section-copy {
+    @apply m-0 max-w-[460px] text-muted;
+  }
+
+  .card-surface {
+    @apply rounded-lg border border-line bg-white shadow-soft;
+  }
+
+  .pill-tag {
+    @apply inline-flex min-h-7 items-center justify-center rounded-full bg-mint px-2.5 text-[13px] font-extrabold text-[#27745d];
+  }
+
+  .button-base {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-transparent px-[22px] font-extrabold transition duration-200 hover:-translate-y-0.5;
+  }
+
+  .form-control {
+    @apply min-h-12 w-full rounded-lg border border-line bg-[#fbfefc] px-3.5 py-3 font-sans text-ink outline-none focus:border-mint-strong focus:shadow-[0_0_0_3px_rgba(95,191,154,0.14)];
+  }
+}

@@ -349,6 +349,9 @@ function Booking() {
                 <option>猫咪减压洗护</option>
               </select>
             </FormField>
+            <FormField label="期望到店时间" wide>
+              <input className="form-control" type="datetime-local" name="arrivalTime" />
+            </FormField>
             <FormField label="备注" wide>
               <textarea
                 className="form-control min-h-28 resize-y"

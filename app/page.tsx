@@ -372,6 +372,10 @@ function Testimonials() {
 }
 
 function Booking() {
+  const tomorrowMorning = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  tomorrowMorning.setHours(9, 30, 0, 0);
+  const defaultArrivalTime = `${tomorrowMorning.getFullYear()}-${String(tomorrowMorning.getMonth() + 1).padStart(2, "0")}-${String(tomorrowMorning.getDate()).padStart(2, "0")}T09:30`;
+
   return (
     <section id="booking" className="section-shell bg-[#fff4ed]">
       <div className="mx-auto grid max-w-[1180px] grid-cols-[0.82fr_1.18fr] items-start gap-7 max-[980px]:grid-cols-2 max-sm:grid-cols-1">
@@ -422,7 +426,7 @@ function Booking() {
               </select>
             </FormField>
             <FormField label="期望到店时间" wide>
-              <input className="form-control" type="datetime-local" name="arrivalTime" />
+              <input className="form-control" type="datetime-local" name="arrivalTime" defaultValue={defaultArrivalTime} />
             </FormField>
             <FormField label="备注" wide>
               <textarea

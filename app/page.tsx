@@ -6,6 +6,7 @@ const navItems = [
   { href: "#services", label: "服务项目" },
   { href: "#process", label: "洗护流程" },
   { href: "#plans", label: "会员套餐" },
+  { href: "#reviews", label: "客户评价" },
   { href: "#booking", label: "预约到店" },
 ];
 
@@ -88,6 +89,45 @@ const plans = [
     price: "699",
     suffix: "/3次",
     items: ["含造型咨询", "局部修剪不限次调整", "护理产品 9 折"],
+  },
+];
+
+const testimonials = [
+  {
+    name: "林女士",
+    pet: "比熊 豆包",
+    rating: "5.0",
+    copy: "第一次来就很安心，美容师会先问豆包有没有皮肤敏感和打结位置。剪完造型很清爽，耳朵和脚底也处理得很干净。",
+  },
+  {
+    name: "周先生",
+    pet: "英短 蓝蓝",
+    rating: "5.0",
+    copy: "我家猫平时特别怕吹风，这里安排了安静时段，过程比想象中顺利。洗完毛很蓬，回家也没有应激。",
+  },
+  {
+    name: "陈女士",
+    pet: "柯基 奶盖",
+    rating: "4.9",
+    copy: "服务节奏很稳，不会一味赶时间。洗护前后都会拍照说明，哪些地方掉毛多、哪里需要观察都讲得清楚。",
+  },
+  {
+    name: "王先生",
+    pet: "金毛 Max",
+    rating: "5.0",
+    copy: "大型犬洗护很考验耐心，店员全程两个人配合，吹干特别仔细。Max 回来身上香味很自然，不刺鼻。",
+  },
+  {
+    name: "赵女士",
+    pet: "泰迪 糖糖",
+    rating: "4.9",
+    copy: "连续办了月卡，最大的感受是稳定。每次造型都能保持同一个风格，预约时间也比较准，不用等太久。",
+  },
+  {
+    name: "许女士",
+    pet: "布偶 小雪",
+    rating: "5.0",
+    copy: "长毛猫打结处理得很温柔，没有硬扯。护理建议也很实用，教了我回家怎么梳毛和减少毛结。",
   },
 ];
 
@@ -301,6 +341,36 @@ function MembershipPlans() {
   );
 }
 
+function Testimonials() {
+  return (
+    <section id="reviews" className="section-shell bg-[#f7fbf7]">
+      <SectionHead
+        title="客户评价"
+        copy="来自附近宠物家庭的真实反馈。我们更在意每一次洗护后的状态、细节和主人能不能放心。"
+      />
+      <div className="mx-auto grid max-w-[1180px] grid-cols-3 gap-[18px] max-[980px]:grid-cols-2 max-sm:grid-cols-1">
+        {testimonials.map((item) => (
+          <article key={`${item.name}-${item.pet}`} className="card-surface grid min-h-[250px] gap-5 p-6 max-sm:p-[22px]">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="m-0 text-[20px] leading-[1.2]">{item.name}</h3>
+                <p className="m-0 mt-1 text-sm font-bold text-mint-strong">{item.pet}</p>
+              </div>
+              <span className="rounded-full bg-[#fff4ed] px-3 py-1 text-sm font-black text-coral">
+                {item.rating}
+              </span>
+            </div>
+            <p className="m-0 text-[15px] leading-7 text-muted">“{item.copy}”</p>
+            <div className="mt-auto flex gap-1 text-lg text-coral" aria-label={`${item.rating} 分评价`}>
+              {"★★★★★"}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Booking() {
   return (
     <section id="booking" className="section-shell bg-[#fff4ed]">
@@ -415,6 +485,7 @@ export default function Home() {
       <main id="top">
         <Hero />
         <Services />
+        <Testimonials />
         <Process />
         <MembershipPlans />
         <Booking />

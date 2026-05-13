@@ -317,10 +317,12 @@ function Booking() {
               ["营业时间", "10:00 - 21:00"],
               ["门店地址", "城市花园 2 号楼 108"],
               ["预约电话", "400-6688-120"],
+              ["电子邮箱", "hello@petcare.com"],
+              ["邮编", "200120"],
             ].map(([label, value]) => (
               <div key={label} className="flex justify-between gap-5 text-muted">
                 <strong className="text-ink">{label}</strong>
-                <span>{value}</span>
+                <span className="break-all text-right">{value}</span>
               </div>
             ))}
           </div>
